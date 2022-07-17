@@ -1,0 +1,19 @@
+:host{
+  height: 100%;
+  width: 100%;
+}
+
+.app-header{
+  box-sizing: border-box;
+  height: 64px;
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+}
+
+.app-main{
+  box-sizing: border-box;
+  height: calc(100% - 104px);
+  overflow: auto;
+}

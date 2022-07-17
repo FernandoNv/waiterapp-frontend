@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './page/home/home.component';
 import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from './shared/layout/layout.module';
 
 
 const matModules = [
