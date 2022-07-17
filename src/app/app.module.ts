@@ -7,24 +7,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './page/home/home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from './shared/layout/layout.module';
-
-
-const matModules = [
-  MatButtonModule
-];
-
-const ngModules = [
-  BrowserModule,
-  AppRoutingModule,
-  BrowserAnimationsModule
-];
+import { MaterialModules } from './material-modules.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
   ],
-  imports: [...ngModules, ...matModules],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule, 
+    MaterialModules
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

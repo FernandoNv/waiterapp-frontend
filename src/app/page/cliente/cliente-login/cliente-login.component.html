@@ -1,0 +1,19 @@
+<app-layout>
+  <section class="section-cliente-login">
+    <h1>Faça o seu pedido</h1>
+    <form [formGroup]="form" class="form-login">
+      <mat-form-field appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput name="any-nome" [formControl]="nomeFormControl" required>
+        <mat-hint>Insira o seu nome</mat-hint>
+        <mat-error *ngIf="nomeFormControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>CPF</mat-label>
+        <input matInput name="any-cpf" [formControl]="cpfFormControl">
+        <mat-hint>O CPF é opcional</mat-hint>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!nomeFormControl.valid">Continuar</button>
+    </form>
+  </section>
+</app-layout>

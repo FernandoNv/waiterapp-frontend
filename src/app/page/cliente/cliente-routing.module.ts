@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ClienteComponent } from './cliente.component';
+import { ClienteDashboardComponent } from './cliente-dashboard/cliente-dashboard.component';
+import { ClienteLoginComponent } from './cliente-login/cliente-login.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: ClienteDashboardComponent,
     pathMatch: 'full',
-    component: ClienteComponent,
+  },
+  {
+    path:'login',
+    component: ClienteLoginComponent
   }
 ];
 
