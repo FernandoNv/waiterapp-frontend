@@ -10,6 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ClienteDashboardComponent } from './cliente-dashboard/cliente-dashboard.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 const appComponents = [
   ClienteDashboardComponent,
@@ -18,9 +20,9 @@ const appComponents = [
 
 const ngModules = [
   CommonModule,
+  RouterModule,
   ClienteRoutingModule,
   ReactiveFormsModule,
-  RouterModule,
 ]
 const ngxModules = [
   LayoutModule,
@@ -30,6 +32,7 @@ const matModules = [
   MatInputModule,
   MatFormFieldModule,
   MatButtonModule,
+  MatProgressSpinnerModule
 ];
 
 @NgModule({

@@ -1,5 +1,8 @@
 <app-layout>
-  <section class="section-cliente-login">
+  <section *ngIf="loading$ | async" class="section-cliente-login">
+    <mat-spinner></mat-spinner>
+  </section>
+  <section *ngIf="!(loading$ | async)" class="section-cliente-login">
     <h1>Faça o seu pedido</h1>
     <form [formGroup]="form" class="form-login">
       <mat-form-field appearance="fill">
@@ -13,7 +16,13 @@
         <input matInput name="any-cpf" [formControl]="cpfFormControl">
         <mat-hint>O CPF é opcional</mat-hint>
       </mat-form-field>
-      <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!nomeFormControl.valid">Continuar</button>
+      <button 
+        mat-raised-button 
+        type="button" 
+        color="primary" 
+        [disabled]="!nomeFormControl.valid"
+        (click)="onSubmit()" 
+      >Continuar</button>
     </form>
   </section>
 </app-layout>

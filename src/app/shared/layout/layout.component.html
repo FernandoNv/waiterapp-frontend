@@ -5,9 +5,26 @@
       <span style="margin-left: -10px; font-size: 1rem;">WaiterApp</span>
     </button>
     <span class="example-spacer"></span>
-    <button mat-button class="example-icon" aria-label="Login button">
+    <button 
+      *ngIf="(isClienteLogado$ | async)" 
+      mat-button class="example-icon"
+      aria-label="Logout Cliente button"
+      (click)="onLogout()"
+    >
+      <span style="margin-right: 10px;">
+        {{ nomeCliente }}
+      </span>
+      <mat-icon>logout</mat-icon>
+    </button>
+    <button
+      *ngIf="!(isClienteLogado$ | async)" 
+      mat-button class="example-icon" 
+      aria-label="Login button" 
+    >
+      <span style="margin-right: 10px;">
+        Login Funcionário
+      </span>
       <mat-icon>login</mat-icon>
-      <span style="margin-left: 10px;">Login Funcionário</span>
     </button>
  </mat-toolbar>
 </header>

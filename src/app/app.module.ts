@@ -8,6 +8,7 @@ import { HomeComponent } from './page/home/home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from './shared/layout/layout.module';
 import { MaterialModules } from './material-modules.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { MaterialModules } from './material-modules.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule, 
     MaterialModules
