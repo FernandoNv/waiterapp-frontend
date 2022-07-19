@@ -4,6 +4,7 @@ import { CartComponent } from './cart.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
 
 const ngModules = [
   CommonModule
@@ -12,7 +13,8 @@ const ngModules = [
 const matModules = [
   MatCardModule,
   MatButtonModule,
-  MatDialogModule
+  MatDialogModule,
+  MatTableModule,
 ]
 
 const appComponents = [

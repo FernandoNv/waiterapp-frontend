@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable, Subject } from 'rxjs';
+import { IItemPedido } from 'src/app/page/cliente/cliente-fazer-pedido/cliente-fazer-pedido.component';
 import { IBebida, IPrato } from '../item';
 import { ItemDetalheComponent } from '../item-detalhe/item-detalhe.component';
 import { ItemService } from '../item.service';
@@ -15,6 +16,9 @@ export class ListaItemComponent implements OnInit {
 
   loading$: Observable<boolean>;
   destroy$ = new Subject<boolean>;
+
+  @Output('app-add-item-pedido')
+  addItemPedidoEmitter = new EventEmitter<IItemPedido>();
 
   constructor(
     private itemService: ItemService,
@@ -35,7 +39,7 @@ export class ListaItemComponent implements OnInit {
     const dialogRef = this.dialog.open(ItemDetalheComponent, { data: item });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed ', result);
+      if(result) this.addItemPedidoEmitter.emit(result);
     });
   }
 }

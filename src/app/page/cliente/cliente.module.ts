@@ -19,6 +19,7 @@ import { ItemModule } from 'src/app/shared/item/item.module';
 import { MatIconModule } from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CartModule } from 'src/app/shared/cart/cart.module';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 const appComponents = [
@@ -48,6 +49,7 @@ const matModules = [
   MatCardModule,
   MatIconModule,
   MatDialogModule,
+  MatBadgeModule
 ];
 
 @NgModule({

@@ -7,8 +7,9 @@
         <p>Data de Cadastro: {{ cliente.dataCriacao | date:'dd/MM/yyyy' }}</p>
       </section>
       <section class="col-lg-10 conteudo">
-        <section class="row px-3 d-flex justify-content-end">
-          <button 
+        <div class="row px-3">
+          <button
+            [matBadge]="itensPedido.length" matBadgeColor="accent"
             mat-raised-button 
             color="primary" 
             style="width: 64px"
@@ -16,8 +17,17 @@
           >
             <mat-icon>shopping_cart</mat-icon>
           </button>
-        </section>
-        <app-lista-item class="row py-3"></app-lista-item>
+        </div>
+        <app-lista-item (app-add-item-pedido)="addItemPedido($event)" class="row py-3"></app-lista-item>
+        <div class="container row px-3 d-flex justify-content-end text-end">
+          <h3>Valor total: {{ valorTotalPedido | currency}}</h3>
+          <button [disabled]="!itensPedido.length"
+            mat-raised-button 
+            color="primary"
+            style="width: 160px"
+            (click)="fazerPedido()"
+          ><mat-icon>checkout</mat-icon> Finalizar Pedido</button>
+        </div>
       </section>
     </div>
   </div>
