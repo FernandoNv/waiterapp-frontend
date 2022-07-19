@@ -1,5 +1,19 @@
 <app-layout>
   <div class="app-cliente">
-    <p>cliente-dashboard works!</p>
+    <div class="row">
+      <section *ngIf="clienteLogado$ | async as cliente" class="col-lg-4 informacoes-cliente p-4">
+        <p>Nome: {{ cliente.nome }}</p>
+        <p>CPF: {{ cliente.cpf }}</p>
+        <p>Data de Cadastro: {{ cliente.dataCriacao | date:'dd/MM/yyyy' }}</p>
+      </section>
+      <section class="col-lg-8 conteudo p-4">
+        <button 
+          mat-raised-button color="warn"
+          routerLink="/cliente/fazer-pedido" 
+          routerLinkActive="active"
+        >Escolher Items</button>
+        <router-outlet></router-outlet>
+      </section>
+    </div>
   </div>
 </app-layout>

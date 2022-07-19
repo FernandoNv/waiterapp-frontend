@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+.item-card{
+  min-width: 150px;
+  border: 2px solid transparent;
+  transition: 0.2s border;
+  &:hover{
+    border: 2px solid #c2185b;
+    cursor: pointer;
+  }
+}

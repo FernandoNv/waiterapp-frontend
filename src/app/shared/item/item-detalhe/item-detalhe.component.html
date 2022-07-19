@@ -1,0 +1,29 @@
+<div class="row item-detalhe">
+  <div class="col">
+    <h1 mat-dialog-title class="text-center">{{ data.nome }}</h1>
+    <div mat-dialog-content class="d-flex justify-content-center text-center">
+      <div class="row">
+        <div class="col">
+          <h2> {{data.descricao}} </h2>
+          <p>Data de cadastro: {{ data.dataCriacao | date }}</p>
+          <span *ngIf="prato">
+            <h3>Ingredientes:</h3>
+            <div *ngFor="let ingrediente of prato.ingredientes">
+              <h4> {{ ingrediente.nome }}</h4>
+              <p> {{ ingrediente.descricao }} </p>
+              <h4> Calorias: {{ ingrediente.caloria }} </h4>
+            </div>
+          </span>
+          <span *ngIf="bebida">
+            <h2>Quantidade: {{ bebida.quantidade }}</h2>
+          </span>
+          <h2>Preço: {{ data.preco | currency }}</h2>
+        </div>
+      </div>
+    </div>
+    <div mat-dialog-actions class="d-flex justify-content-between">
+      <button mat-raised-button color="accent" (click)="onClose()">Fechar</button>
+      <button mat-raised-button color="primary" (click)="onClick()">Adicionar ao carrinho</button>
+    </div>
+  </div>
+</div>

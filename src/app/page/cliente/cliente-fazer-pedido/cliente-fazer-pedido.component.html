@@ -1,0 +1,24 @@
+<app-layout>
+  <div class="app-fazer-pedido">
+    <div class="row">
+      <section *ngIf="clienteLogado$ | async as cliente" class="col-lg-2 informacoes-cliente p-4">
+        <p>Nome: {{ cliente.nome }}</p>
+        <p>CPF: {{ cliente.cpf }}</p>
+        <p>Data de Cadastro: {{ cliente.dataCriacao | date:'dd/MM/yyyy' }}</p>
+      </section>
+      <section class="col-lg-10 conteudo">
+        <section class="row px-3 d-flex justify-content-end">
+          <button 
+            mat-raised-button 
+            color="primary" 
+            style="width: 64px"
+            (click)="onCartClick()"
+          >
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+        </section>
+        <app-lista-item class="row py-3"></app-lista-item>
+      </section>
+    </div>
+  </div>
+</app-layout>

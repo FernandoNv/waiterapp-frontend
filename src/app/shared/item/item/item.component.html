@@ -1,0 +1,10 @@
+<mat-card *ngIf="item" class="item-card" (click)="onClickItem()">
+  <mat-card-title-group>
+    <mat-card-title>{{ item.nome }}</mat-card-title>
+  </mat-card-title-group>
+  <mat-card-content>
+    <p>{{ item.descricao }}</p>
+    <p>{{ item.dataCriacao | date }}</p>
+    <p>{{ item.preco | currency }}</p>
+  </mat-card-content>
+</mat-card>

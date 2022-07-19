@@ -1,8 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { AuthService } from 'src/app/core/auth/auth.service';
-import { Cliente } from 'src/app/page/cliente/cliente';
 
 @Component({
   selector: 'app-layout',

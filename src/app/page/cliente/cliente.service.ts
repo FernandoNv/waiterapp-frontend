@@ -1,9 +1,13 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, shareReplay, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { AuthService } from 'src/app/core/auth/auth.service';
-import { environment } from 'src/environments/environment';
 import { Cliente } from './cliente';
+
+const cliente = {
+  nome: window.localStorage.getItem('app:cliente:nome'),
+  cpf: window.localStorage.getItem('app:cliente:cpf'),
+  dataCriacao: new Date(Number.parseInt(window.localStorage.getItem('app:cliente:dataCriacao') as unknown as string))
+};
 
 export interface ICadastroCliente{
   nome: string;
@@ -13,7 +17,8 @@ export interface ICadastroCliente{
   providedIn: 'root'
 })
 export class ClienteService {
-  private loadingSubject = new Subject<boolean>();
+  private loadingSubject = new BehaviorSubject<boolean>(false);
+  private clienteLogadoSubject = new BehaviorSubject<Cliente>(cliente as Cliente);
 
   constructor(private authService: AuthService) { }
 
@@ -21,7 +26,10 @@ export class ClienteService {
     this.loadingSubject.next(true);
     const observable = this.authService.cadastrarCliente(novoCliente);
     observable.subscribe({
-      next: () => this.loadingSubject.next(false),
+      next: (cliente) => {
+        this.clienteLogadoSubject.next(cliente);
+        this.loadingSubject.next(false);
+      },
       error: () => this.loadingSubject.next(false), 
     })
 
@@ -36,5 +44,8 @@ export class ClienteService {
     return this.loadingSubject.asObservable();
   }
 
+  clienteLogado(): Observable<Cliente>{
+    return this.clienteLogadoSubject.asObservable();
+  }
   
 }
