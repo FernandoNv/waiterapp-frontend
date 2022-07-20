@@ -1,7 +1,7 @@
-export interface Cliente {
-    id: number;
-    nome: string;
-    cpf: string;
-    dataCriacao: Date;
-    pedidos?: [];
+export interface ICliente {
+  id: number;
+  nome: string;
+  email?: string;
+  cpf?: string;
+  dataCriacao: Date;
 }

@@ -19,7 +19,7 @@
           </button>
         </div>
         <app-lista-item (app-add-item-pedido)="addItemPedido($event)" class="row py-3"></app-lista-item>
-        <div class="container row px-3 d-flex justify-content-end text-end">
+        <div class="container row py-3 d-flex justify-content-end text-end">
           <h3>Valor total: {{ valorTotalPedido | currency}}</h3>
           <button [disabled]="!itensPedido.length"
             mat-raised-button 

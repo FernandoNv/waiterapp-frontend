@@ -1,13 +1,11 @@
-<div *ngIf="loading$ | async" class="container d-flex justify-content-center align-items-center center-spinner">
+<div *ngIf="loading$ | async" class="d-flex justify-content-center align-items-center">
   <mat-spinner></mat-spinner>
 </div>
-<div class="container">
-  <div class="row">
-    <div *ngFor="let item of listaItem$ | async" class="col-lg-3">
-      <app-item 
-        [item]="item"
-        (app-item-clicked)="clickItem($event)"
-      ></app-item>
-    </div>
+<div class="row">
+  <div *ngFor="let item of listaItem$ | async" class="col-lg-3">
+    <app-item 
+      [item]="item"
+      (app-item-clicked)="clickItem($event)"
+    ></app-item>
   </div>
 </div>

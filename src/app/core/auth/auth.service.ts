@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, map, Observable, shareReplay } from 'rxjs';
-import { Cliente } from 'src/app/page/cliente/cliente';
+import { ICliente } from 'src/app/page/cliente/cliente';
 import { ICadastroCliente } from 'src/app/page/cliente/cliente.service';
 import { environment } from 'src/environments/environment';
 
@@ -17,9 +17,9 @@ export class AuthService {
     this.isClienteLogadoSubject.next(this.clienteLogado());
   }
 
-  cadastrarCliente(novoCliente: ICadastroCliente):Observable<Cliente> {
+  cadastrarCliente(novoCliente: ICadastroCliente):Observable<ICliente> {
     const url = `${this.baseUrl}/clientes/`;
-    const observable = this.httpClient.post<Cliente>(url, novoCliente).pipe(
+    const observable = this.httpClient.post<ICliente>(url, novoCliente).pipe(
       map((cliente) => ({...cliente, dataCriacao:  new Date(cliente.dataCriacao)})),
       shareReplay()
     );
@@ -47,10 +47,10 @@ export class AuthService {
     return this.isClienteLogadoSubject.asObservable();
   }
   
-  private saveCliente(cliente: Cliente): void{
+  private saveCliente(cliente: ICliente): void{
     window.localStorage.setItem('app:cliente:nome', cliente.nome);
     window.localStorage.setItem('app:cliente:id', cliente.id.toString());
     window.localStorage.setItem('app:cliente:dataCriacao', cliente.dataCriacao.getTime().toString());
-    window.localStorage.setItem('app:cliente:cpf', cliente.cpf);
+    window.localStorage.setItem('app:cliente:cpf', cliente.cpf as string);
   }
 }
