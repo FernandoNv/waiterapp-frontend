@@ -18,6 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
+    canActivate: [ClienteAuthenticationGuard],
     component: ClienteDashboardComponent,
   },
   {

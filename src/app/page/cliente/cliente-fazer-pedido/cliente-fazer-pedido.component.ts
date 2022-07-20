@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { CartComponent } from 'src/app/shared/cart/cart.component';
 import { IBebida, IPrato } from 'src/app/shared/item/item';
 import { Cliente } from '../cliente';
@@ -31,7 +31,7 @@ export class ClienteFazerPedidoComponent implements OnInit {
       .pipe(
         map((cliente) => ({
           ...cliente,
-          cpf: cliente.cpf === null ? cliente.cpf : 'Não informado',
+          cpf: cliente.cpf === null ? 'Não informado' : cliente.cpf
         }))
       );
   }

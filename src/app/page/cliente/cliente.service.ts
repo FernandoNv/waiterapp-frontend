@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { Cliente } from './cliente';
 
-const cliente = {
-  nome: window.localStorage.getItem('app:cliente:nome'),
-  cpf: window.localStorage.getItem('app:cliente:cpf'),
-  dataCriacao: new Date(Number.parseInt(window.localStorage.getItem('app:cliente:dataCriacao') as unknown as string))
+const cliente: Cliente = {
+  id: Number(window.localStorage.getItem('app:cliente:id')),
+  nome: String(window.localStorage.getItem('app:cliente:nome')),
+  cpf: String(window.localStorage.getItem('app:cliente:cpf')),
+  dataCriacao: new Date(Number(window.localStorage.getItem('app:cliente:dataCriacao')))
 };
 
 export interface ICadastroCliente{
@@ -18,7 +19,7 @@ export interface ICadastroCliente{
 })
 export class ClienteService {
   private loadingSubject = new BehaviorSubject<boolean>(false);
-  private clienteLogadoSubject = new BehaviorSubject<Cliente>(cliente as Cliente);
+  private clienteLogadoSubject = new BehaviorSubject<Cliente>(cliente);
 
   constructor(private authService: AuthService) { }
 

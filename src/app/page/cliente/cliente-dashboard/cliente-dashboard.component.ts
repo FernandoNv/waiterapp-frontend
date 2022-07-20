@@ -1,8 +1,6 @@
 import {
   Component,
-  OnChanges,
   OnInit,
-  SimpleChanges,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
