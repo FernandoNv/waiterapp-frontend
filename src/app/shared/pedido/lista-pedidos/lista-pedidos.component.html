@@ -1,0 +1,43 @@
+<div *ngIf="loading$ | async" class="d-flex justify-content-center align-items-center">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!(loading$ | async)" class="row">
+  <table 
+    mat-table 
+    [dataSource]="pedidos$ ? pedidos$ : []" 
+    matSort
+    matSortDirection="desc"
+    matSortActive="dataCriacao"
+    (matSortChange)="sortData($event)"
+    class="col" 
+  >
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-center">ID</th>
+      <td mat-cell *matCellDef="let pedido" class="text-center">{{ pedido.id }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="dataCriacao">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-center">Data do Pedido</th>
+      <td mat-cell *matCellDef="let pedido" class="text-center">{{ pedido.dataCriacao | date:'dd/MM/yyyy hh:mm' }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="estado">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-center">Estado</th>
+      <td mat-cell *matCellDef="let pedido" class="text-center">{{ pedido.estado }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="garcom">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-center">Garçom</th>
+      <td mat-cell *matCellDef="let pedido" class="text-center">{{ pedido.garcom ? pedido.garcom.nome : "A ser escolhido" }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="precoTotal">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by precoTotal" class="text-center">Preço Total</th>
+      <td mat-cell *matCellDef="let pedido" class="text-center">{{ pedido.precoTotal | currency }}</td>
+    </ng-container>
+    
+    <!-- ['id', 'dataCriacao', 'estado', 'garcom', 'precoTotal'] -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

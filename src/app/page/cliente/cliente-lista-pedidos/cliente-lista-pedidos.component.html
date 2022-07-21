@@ -5,14 +5,14 @@
         <p>Nome: {{ cliente.nome }}</p>
         <p>CPF: {{ cliente.cpf }}</p>
         <p>Data de Cadastro: {{ cliente.dataCriacao | date:'dd/MM/yyyy' }}</p>
-      </section>
-      <section class="col-lg-10 conteudo p-4">
         <button 
           mat-raised-button color="warn"
           routerLink="/cliente/fazer-pedido" 
           routerLinkActive="active"
-        >Escolher Items</button>
-        <router-outlet></router-outlet>
+        >Fazer novo Pedido</button>
+      </section>
+      <section class="col-lg-10 conteudo p-4">
+        <app-lista-pedidos></app-lista-pedidos>
       </section>
     </div>
   </div>

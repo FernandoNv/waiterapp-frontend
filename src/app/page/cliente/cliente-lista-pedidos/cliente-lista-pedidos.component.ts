@@ -8,11 +8,11 @@ import { ICliente } from '../cliente';
 import { ClienteService } from '../cliente.service';
 
 @Component({
-  selector: 'app-cliente-dashboard',
-  templateUrl: './cliente-dashboard.component.html',
-  styleUrls: ['./cliente-dashboard.component.scss'],
+  selector: 'app-cliente-lista-pedidos',
+  templateUrl: './cliente-lista-pedidos.component.html',
+  styleUrls: ['./cliente-lista-pedidos.component.scss'],
 })
-export class ClienteDashboardComponent implements OnInit {
+export class ClienteListaPedidosComponent implements OnInit {
   clienteLogado$: Observable<ICliente>;
   buttonFazerPedidoCliked: boolean = false;
 

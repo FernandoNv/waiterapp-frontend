@@ -73,7 +73,7 @@ export class ClienteFazerPedidoComponent implements OnInit, OnDestroy{
     this.clienteService.cadastrarPedido(pedido).pipe(takeUntil(this.destroy$)).subscribe({
       next: (pedido)=>{
         console.log(pedido);
-        this.router.navigate(["/cliente/dashboard"]);
+        this.router.navigate(["/cliente/lista-pedidos"]);
       },
       error: ()=>{
         console.log("Erro ao fazer o pedido");

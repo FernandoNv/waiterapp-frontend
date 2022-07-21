@@ -13,7 +13,6 @@ import { ItemService } from '../item.service';
 })
 export class ListaItemComponent implements OnInit {
   listaItem$: Observable<(IBebida | IPrato)[]>
-
   loading$: Observable<boolean>;
   destroy$ = new Subject<boolean>;
 

@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+.mat-row:hover .mat-cell {
+  cursor: pointer;
+}
+
+::ng-deep .mat-sort-header-container {
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
+

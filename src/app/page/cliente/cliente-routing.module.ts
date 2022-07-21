@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClienteAuthenticationGuard } from 'src/app/core/auth/cliente-authentication.guard';
-import { ClienteDashboardComponent } from './cliente-dashboard/cliente-dashboard.component';
 import { ClienteFazerPedidoComponent } from './cliente-fazer-pedido/cliente-fazer-pedido.component';
+import { ClienteListaPedidosComponent } from './cliente-lista-pedidos/cliente-lista-pedidos.component';
 import { ClienteLoginComponent } from './cliente-login/cliente-login.component';
 
 const routes: Routes = [
@@ -17,9 +17,9 @@ const routes: Routes = [
     component: ClienteFazerPedidoComponent
   },
   {
-    path: 'dashboard',
+    path: 'lista-pedidos',
     canActivate: [ClienteAuthenticationGuard],
-    component: ClienteDashboardComponent,
+    component: ClienteListaPedidosComponent,
   },
   {
     path:'login',
