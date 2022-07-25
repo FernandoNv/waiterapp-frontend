@@ -22,6 +22,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { PedidoModule } from 'src/app/shared/pedido/pedido.module';
 import { ClientePedidoComponent } from './cliente-pedido/cliente-pedido.component';
 import { DialogConfirmaExclusaoComponent } from './cliente-pedido/dialog-confirma-exclusao/dialog-confirma-exclusao.component';
+import { MatListModule } from '@angular/material/list';
 
 
 const appComponents = [
@@ -55,7 +56,8 @@ const matModules = [
   MatIconModule,
   MatDialogModule,
   MatBadgeModule,
-  MatDialogModule
+  MatDialogModule,
+  MatListModule
 ];
 
 @NgModule({

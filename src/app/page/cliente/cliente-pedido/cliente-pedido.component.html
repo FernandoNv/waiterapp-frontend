@@ -16,6 +16,12 @@
           <h3>Opções extras: {{ pedido.opcoesExtras ? pedido.opcoesExtras : "Sem opções extra"}}</h3>
           <h3>Nota atendimento: {{ pedido.notaAtendimento ? pedido.notaAtendimento : "Ainda sem nota"}}</h3>
           <h3>Nota pedido: {{ pedido.notaPedido ? pedido.notaPedido : "Ainda sem nota"}}</h3>
+          <h3>Items do pedido: </h3>
+          <mat-list>
+            <mat-list-item role="listitem" *ngFor="let itemPedido of pedido.items">
+              <li>{{ itemPedido.item.nome }} - Quantidade: {{ itemPedido.quantidade }}</li>
+            </mat-list-item>
+          </mat-list>
         </div>
         <!-- items: IItemPedido[]; -->
         <button class="width: " color="warn" mat-raised-button aria-label="Logout Cliente button" (click)="onDelete()">
