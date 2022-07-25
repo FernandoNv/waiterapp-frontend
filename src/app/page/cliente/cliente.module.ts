@@ -20,12 +20,16 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { CartModule } from 'src/app/shared/cart/cart.module';
 import {MatBadgeModule} from '@angular/material/badge';
 import { PedidoModule } from 'src/app/shared/pedido/pedido.module';
+import { ClientePedidoComponent } from './cliente-pedido/cliente-pedido.component';
+import { DialogConfirmaExclusaoComponent } from './cliente-pedido/dialog-confirma-exclusao/dialog-confirma-exclusao.component';
 
 
 const appComponents = [
   ClienteListaPedidosComponent,
   ClienteLoginComponent,
   ClienteFazerPedidoComponent,
+  ClientePedidoComponent,
+  DialogConfirmaExclusaoComponent
 ];
 
 const ngModules = [
@@ -50,7 +54,8 @@ const matModules = [
   MatCardModule,
   MatIconModule,
   MatDialogModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatDialogModule
 ];
 
 @NgModule({

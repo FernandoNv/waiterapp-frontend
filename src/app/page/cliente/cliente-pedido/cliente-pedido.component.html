@@ -1,0 +1,28 @@
+<app-layout>
+  <div class="container cliente-pedido">
+    <mat-spinner class="center-spinner" *ngIf="loading$ | async"></mat-spinner>
+    <ng-container *ngIf="pedido$ | async as pedido">
+      <div class="row">
+        <div class="col-12">
+          <h1>ID: {{pedido.id}} - Preço Total: {{ pedido.precoTotal | currency }}</h1>
+          <p>Data do pedido: {{ pedido.dataCriacao | date:'dd/MM/yyyy' }}</p>
+          <h3>Cliente: {{ pedido.cliente.nome }}</h3>
+        </div>
+        <br/>
+        <div class="col">
+          <h3>Estado: {{ pedido.estado }}</h3>
+          <h3>Garçom: {{ pedido.garcom ? pedido.garcom.nome : "Ainda a escolher" }}</h3> 
+          <h3>Pagamento: {{ pedido.pagamento ? pedido.pagamento.estadoPagamento : "Ainda não pago" }}</h3>
+          <h3>Opções extras: {{ pedido.opcoesExtras ? pedido.opcoesExtras : "Sem opções extra"}}</h3>
+          <h3>Nota atendimento: {{ pedido.notaAtendimento ? pedido.notaAtendimento : "Ainda sem nota"}}</h3>
+          <h3>Nota pedido: {{ pedido.notaPedido ? pedido.notaPedido : "Ainda sem nota"}}</h3>
+        </div>
+        <!-- items: IItemPedido[]; -->
+        <button class="width: " color="warn" mat-raised-button aria-label="Logout Cliente button" (click)="onDelete()">
+          <mat-icon>delete</mat-icon>
+          Excluir pedido
+        </button>
+      </div>
+    </ng-container>
+  </div>
+</app-layout>

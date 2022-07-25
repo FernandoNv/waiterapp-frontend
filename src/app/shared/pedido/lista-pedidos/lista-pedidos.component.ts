@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Sort } from '@angular/material/sort';
+import { ActivatedRoute, Router } from '@angular/router';
 import { concatMap, Observable, retry, Subject, take, takeUntil } from 'rxjs';
 import { ClienteService } from 'src/app/page/cliente/cliente.service';
 import { IPedido } from '../pedido';
@@ -21,7 +22,9 @@ export class ListaPedidosComponent implements OnInit, OnDestroy {
 
   constructor(
     private pedidoService: PedidoService, 
-    private clienteService: ClienteService
+    private clienteService: ClienteService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.loading$ = this.pedidoService.isLoading();
     //Com um bug na verificação do loading no html
@@ -43,6 +46,11 @@ export class ListaPedidosComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     
+  }
+
+  onClickRow(idPedido: number){
+    console.log(idPedido);
+    this.router.navigate(['/cliente/pedido-detalhe/', idPedido]);
   }
 
   sortData(sort: Sort) {

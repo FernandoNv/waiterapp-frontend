@@ -6,6 +6,7 @@ import { MatTableModule } from '@angular/material/table';
 import { PedidoComponent } from './pedido/pedido.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSortModule } from '@angular/material/sort';
+import { RouterModule } from '@angular/router';
 
 const matModules = [
   MatProgressSpinnerModule,
@@ -15,7 +16,8 @@ const matModules = [
 ];
 
 const ngModules = [
-  CommonModule
+  CommonModule,
+  RouterModule,
 ];
 
 const appComponents = [

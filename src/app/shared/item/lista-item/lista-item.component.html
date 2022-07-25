@@ -2,7 +2,7 @@
   <mat-spinner></mat-spinner>
 </div>
 <div class="row">
-  <div *ngFor="let item of listaItem$ | async" class="col-lg-3">
+  <div *ngFor="let item of listaItem$ | async" class="col-lg-3 py-3 py-lg-0">
     <app-item 
       [item]="item"
       (app-item-clicked)="clickItem($event)"

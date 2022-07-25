@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, shareReplay } from 'rxjs';
+import { BehaviorSubject, finalize, Observable, shareReplay } from 'rxjs';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { IPedido } from 'src/app/shared/pedido/pedido';
 import { environment } from 'src/environments/environment';
@@ -62,12 +62,9 @@ export class ClienteService {
     this.loadingSubject.next(true);
     const url = `${this.baseUrl}/pedidos/`;
     const observable = this.httpClient.post<IPedido>(url, novoPedido).pipe(
+      finalize(() => this.loadingSubject.next(false)),
       shareReplay()
     );
-
-    observable.subscribe((pedido) => {
-      this.loadingSubject.next(false);
-    });
 
     return observable;
   }

@@ -11,20 +11,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { LOCALE_ID, DEFAULT_CURRENCY_CODE } from '@angular/core';
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { PageNotFoundComponent } from './page/page-not-found/page-not-found.component';
+import { LayoutModule } from './shared/layout/layout.module';
 
 registerLocaleData(localePt, 'pt');
 
 @NgModule({
   declarations: [
     AppComponent, 
-    HomeComponent
+    HomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModules
+    MaterialModules,
+    LayoutModule
   ],
   providers: [
     {
